@@ -379,8 +379,14 @@ function findLongestWord(/* sentence */) {
  *   reverseWords('Hello World') => 'olleH dlroW'
  *   reverseWords('The Quick Brown Fox') => 'ehT kciuQ nworB xoF'
  */
-function reverseWords(/* str */) {
-  throw new Error('Not implemented');
+function reverseWords(str) {
+  let reverseWordsStr = '';
+  const words = str.split(' ');
+  for (let i = 0; i < words.length; i += 1) {
+    words[i] = reverseString(words[i]);
+    reverseWordsStr += `${words[i]} `;
+  }
+  return reverseWordsStr.trimEnd();
 }
 
 /**
@@ -394,8 +400,17 @@ function reverseWords(/* str */) {
  *   invertCase('JavaScript is Fun') => 'jAVAsCRIPT IS fUN'
  *   invertCase('12345') => '12345'
  */
-function invertCase(/* str */) {
-  throw new Error('Not implemented');
+function invertCase(str) {
+  let invertedStr = '';
+  const chars = str.split('');
+  for (let i = 0; i < chars.length; i += 1) {
+    if (String(chars[i]).toLowerCase() === chars[i]) {
+      invertedStr += String(chars[i]).toUpperCase();
+    } else {
+      invertedStr += String(chars[i]).toLowerCase();
+    }
+  }
+  return invertedStr;
 }
 
 /**
@@ -411,8 +426,8 @@ function invertCase(/* str */) {
  *   getStringFromTemplate('John','Doe') => 'Hello, John Doe!'
  *   getStringFromTemplate('Chuck','Norris') => 'Hello, Chuck Norris!'
  */
-function getStringFromTemplate(/* firstName, lastName */) {
-  throw new Error('Not implemented');
+function getStringFromTemplate(firstName, lastName) {
+  return `Hello, ${firstName} ${lastName}!`;
 }
 
 /**
@@ -425,8 +440,11 @@ function getStringFromTemplate(/* firstName, lastName */) {
  *   extractNameFromTemplate('Hello, John Doe!') => 'John Doe'
  *   extractNameFromTemplate('Hello, Chuck Norris!') => 'Chuck Norris'
  */
-function extractNameFromTemplate(/* value */) {
-  throw new Error('Not implemented');
+function extractNameFromTemplate(value) {
+  const words = value.split(' ');
+  const firstName = words[1];
+  const lastName = words[2].slice(0, -1);
+  return `${firstName} ${lastName}`;
 }
 
 /**
@@ -440,8 +458,8 @@ function extractNameFromTemplate(/* value */) {
  *   unbracketTag('<span>') => 'span'
  *   unbracketTag('<a>') => 'a'
  */
-function unbracketTag(/* str */) {
-  throw new Error('Not implemented');
+function unbracketTag(str) {
+  return str.slice(1, -1);
 }
 
 /**
@@ -459,8 +477,8 @@ function unbracketTag(/* str */) {
  *   ],
  *   'info@gmail.com' => ['info@gmail.com']
  */
-function extractEmails(/* str */) {
-  throw new Error('Not implemented');
+function extractEmails(str) {
+  return str.split(';');
 }
 
 /**
